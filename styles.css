@@ -1,0 +1,73 @@
+:root{
+  --bg:#0b1220; --panel:#0f1724; --muted:#9aa6bd; --text:#e6eef8;
+  --primary:#5fb8ff; --accent:#7ef7b6; --glass:rgba(255,255,255,0.03);
+  --border:rgba(255,255,255,0.04);
+  --radius:12px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:linear-gradient(180deg,#031027,#071228);
+  color:var(--text);padding:20px;
+}
+
+/* App shell */
+.app{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:46px;height:46px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(180deg,#6fd3ff,#7ef7b6);color:#022; font-weight:700}
+.muted{color:var(--muted);font-size:13px}
+.actions{display:flex;gap:8px;align-items:center}
+
+/* Buttons */
+.btn{padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:transparent;color:var(--text);cursor:pointer}
+.btn.primary{background:linear-gradient(180deg,var(--primary),#4aa3ff);color:#022131;border:0;font-weight:700}
+.btn.ghost{background:transparent;border-style:dashed;opacity:.9}
+
+/* Board */
+.board-wrap{position:relative}
+.board{display:flex;gap:16px;align-items:flex-start;overflow:auto;padding:12px}
+.column{width:300px;min-width:260px;background:var(--panel);border-radius:12px;padding:10px;border:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,0.45)}
+.col-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.col-title{font-weight:700;display:flex;gap:8px;align-items:center}
+.col-actions{display:flex;gap:6px;align-items:center}
+.col-content{min-height:60px;display:flex;flex-direction:column;gap:8px;padding:6px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+
+/* Card */
+.card{background:#0b1320;border-radius:10px;padding:10px;border:1px solid rgba(255,255,255,0.02);cursor:grab}
+.card:active{cursor:grabbing}
+.card .title{font-weight:600}
+.card .meta{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.tag{font-size:12px;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--muted)}
+
+/* Add card UI */
+.add-card{margin-top:8px;display:flex;gap:8px}
+.add-card input{flex:1;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text)}
+.add-card .btn{padding:8px 10px}
+
+/* Column placeholder while dragging */
+.ui-sortable-placeholder{
+  background: linear-gradient(90deg, rgba(95,184,255,0.04), transparent);
+  border: 2px dashed rgba(95,184,255,0.08);
+  min-height:56px;
+  border-radius:8px;
+}
+
+/* subtle scrollbar for board */
+.board::-webkit-scrollbar{height:10px}
+.board::-webkit-scrollbar-thumb{background:#213244;border-radius:10px}
+
+/* Empty note */
+.empty-note{padding:18px;text-align:center;border-radius:10px;border:1px dashed rgba(255,255,255,0.03);margin-top:12px}
+
+/* Modal overrides (jQuery UI) */
+.ui-dialog .ui-dialog-buttonpane .ui-button { padding:6px 12px; border-radius:8px; }
+.ui-widget { font-family: Inter, system-ui, -apple-system; }
+
+/* Responsive */
+@media (max-width:880px){
+  .board{padding:8px;gap:10px}
+  .column{width:260px}
+  .brand h1{font-size:18px}
+}
