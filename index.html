@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kanban Board — jQuery Mini</title>
+
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- jQuery + jQuery UI -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <div class="logo">🗂️</div>
+        <div>
+          <h1>Kanban Mini</h1>
+          <div class="muted">Drag • Drop • Organize — localStorage-backed</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="addColumnBtn" class="btn primary"><i class="fa-solid fa-plus"></i> Add Column</button>
+        <button id="exportBtn" class="btn"><i class="fa-solid fa-file-export"></i> Export JSON</button>
+        <input id="importFile" type="file" accept="application/json" style="display:none" />
+        <button id="importBtn" class="btn"><i class="fa-solid fa-file-import"></i> Import JSON</button>
+        <button id="resetBtn" class="btn ghost"><i class="fa-solid fa-eraser"></i> Reset</button>
+      </div>
+    </header>
+
+    <main class="board-wrap">
+      <div id="board" class="board">
+        <!-- Columns injected here -->
+      </div>
+
+      <div class="empty-note muted" id="emptyNote">No columns — click "Add Column" to start.</div>
+    </main>
+
+    <footer class="footer muted">
+      Built with jQuery + jQuery UI • Local only
+    </footer>
+  </div>
+
+  <!-- Edit Card Modal (simple) -->
+  <div id="modal" title="Edit Card" style="display:none">
+    <form id="cardForm">
+      <label>Title</label>
+      <input id="cardTitle" required />
+      <label>Description</label>
+      <textarea id="cardDesc" rows="4"></textarea>
+      <label>Label / Tag (optional)</label>
+      <input id="cardTag" placeholder="e.g. High, Bug, UX" />
+      <div style="margin-top:10px;text-align:right">
+        <button type="submit" class="btn primary">Save</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
